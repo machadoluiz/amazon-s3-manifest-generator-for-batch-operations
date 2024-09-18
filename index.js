@@ -40,7 +40,7 @@ function format(object) {
 function help() {
     if(process.argv.length != 5) {
         console.log("Usage: node index.js source_bucket bucket_prefix output_file");
-        process.exit(1);
+        // process.exit(1);
     }
 }
 
