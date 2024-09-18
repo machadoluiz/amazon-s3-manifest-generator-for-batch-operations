@@ -1,7 +1,7 @@
-const AWS = require('aws-sdk');
+const { S3 } = require('@aws-sdk/client-s3');
 const fs = require('fs');
 
-var s3 = new AWS.S3();
+var s3 = new S3();
 
 const SRC_BUCKET = process.argv[2];
 const PREFIX = process.argv[3];
@@ -22,7 +22,7 @@ async function list(token) {
         params.ContinuationToken = token;
     }
     
-    return s3.listObjectsV2(params).promise();   
+    return s3.listObjectsV2(params);   
 }
 
 function write(objects) {
@@ -40,7 +40,7 @@ function format(object) {
 function help() {
     if(process.argv.length != 5) {
         console.log("Usage: node index.js source_bucket bucket_prefix output_file");
-        // process.exit(1);
+        process.exit(1);
     }
 }
 
