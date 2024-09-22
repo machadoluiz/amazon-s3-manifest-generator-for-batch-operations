@@ -1,5 +1,5 @@
-import { S3 } from '@aws-sdk/client-s3';
-import { createWriteStream } from 'fs';
+const { S3 } = require('@aws-sdk/client-s3');
+const { createWriteStream } = require('fs');
 
 var s3 = new S3();
 
